@@ -226,17 +226,21 @@ public class StudentService : IStudentService
 #### Testing with Postman:
 
 **1. GET /students** - List all students
+
 - Method: GET
 - URL: `http://localhost:5166/students`
 
 **2. GET /students/1** - Get student with ID 1
+
 - Method: GET
 - URL: `http://localhost:5166/students/1`
 
 **3. POST /students** - Add a new student
+
 - Method: POST
 - URL: `http://localhost:5166/students`
 - Body (raw JSON):
+
 ```json
 {
   "name": "Ali",
@@ -259,17 +263,21 @@ public class StudentService : IStudentService
 #### Testing with Postman:
 
 **1. GET /courses** - List all courses
+
 - Method: GET
 - URL: `http://localhost:5166/courses`
 
 **2. GET /courses/1** - Get course with ID 1
+
 - Method: GET
 - URL: `http://localhost:5166/courses/1`
 
 **3. POST /courses** - Add a new course
+
 - Method: POST
 - URL: `http://localhost:5166/courses`
 - Body (raw JSON):
+
 ```json
 {
   "title": "Database Systems",
@@ -318,16 +326,19 @@ The API will start on: **http://localhost:5166**
 ### Test GET Endpoints
 
 **Get all students:**
+
 - Method: GET
 - URL: `http://localhost:5166/students`
 - Click **Send**
 
 **Get student by ID:**
+
 - Method: GET
 - URL: `http://localhost:5166/students/1`
 - Click **Send**
 
 **Get all courses:**
+
 - Method: GET
 - URL: `http://localhost:5166/courses`
 - Click **Send**
@@ -335,64 +346,38 @@ The API will start on: **http://localhost:5166**
 ### Test POST Endpoints
 
 **Add a new student:**
+
 1. Method: POST
 2. URL: `http://localhost:5166/students`
 3. Go to **Body** tab → Select **raw** → Choose **JSON** from dropdown
 4. Enter:
+
 ```json
 {
   "name": "Ali",
   "level": 2
 }
 ```
+
 5. Click **Send**
 
 **Add a new course:**
+
 1. Method: POST
 2. URL: `http://localhost:5166/courses`
 3. Body (raw JSON):
+
 ```json
 {
   "title": "Database Systems",
   "creditHours": 4
 }
 ```
+
 4. Click **Send**
 
 ---
 
-## GitHub Submission
-
-### Steps to Submit on GitHub
-
-1. **Create a GitHub Repository**
-   - Go to [github.com/new](https://github.com/new)
-   - Name it `Lab2`
-   - Choose "Add a README file"
-   - Create repository
-
-2. **Initialize Git Locally**
-
-   ```bash
-   cd Lab2
-   git init
-   git add .
-   git commit -m "Initial commit: ASP.NET Core Web API with Students and Courses"
-   ```
-
-3. **Connect to Remote Repository**
-
-   ```bash
-   git remote add origin https://github.com/Mo-Khaled/Lab2.git
-   git branch -M main
-   git push -u origin main --force
-   ```
-
-4. **Verify on GitHub**
-   - Visit your repository URL: `https://github.com/Mo-Khaled/Lab2`
-   - You should see all files including this README
-
----
 
 ## Key Concepts Explained
 
@@ -418,18 +403,6 @@ The API will start on: **http://localhost:5166**
 
 - `AddScoped<IStudentService, StudentService>()` → New instance per request
 - `AddSingleton<T>()` → Single instance for entire app lifecycle
-
----
-
-## What You've Learned
-
-- Creating an empty ASP.NET Core project
-- Structuring projects with Models, Services, Controllers
-- Using Interfaces for abstraction
-- Building RESTful APIs
-- Dependency Injection
-- Testing APIs with Postman
-- Submitting code to GitHub
 
 ---
 
