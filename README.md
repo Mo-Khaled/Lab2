@@ -223,26 +223,25 @@ public class StudentService : IStudentService
 | `/students/{id}` | GET    | Get a specific student by ID |
 | `/students`      | POST   | Create a new student         |
 
-#### Examples:
+#### Testing with Postman:
 
 **1. GET /students** - List all students
-
-```bash
-curl http://localhost:5166/students
-```
+- Method: GET
+- URL: `http://localhost:5166/students`
 
 **2. GET /students/1** - Get student with ID 1
-
-```bash
-curl http://localhost:5166/students/1
-```
+- Method: GET
+- URL: `http://localhost:5166/students/1`
 
 **3. POST /students** - Add a new student
-
-```bash
-curl -X POST http://localhost:5166/students \
-  -H "Content-Type: application/json" \
-  -d '{"name": "Ali", "level": 2}'
+- Method: POST
+- URL: `http://localhost:5166/students`
+- Body (raw JSON):
+```json
+{
+  "name": "Ali",
+  "level": 2
+}
 ```
 
 ---
@@ -257,26 +256,25 @@ curl -X POST http://localhost:5166/students \
 | `/courses/{id}` | GET    | Get a specific course by ID |
 | `/courses`      | POST   | Create a new course         |
 
-#### Examples:
+#### Testing with Postman:
 
 **1. GET /courses** - List all courses
-
-```bash
-curl http://localhost:5166/courses
-```
+- Method: GET
+- URL: `http://localhost:5166/courses`
 
 **2. GET /courses/1** - Get course with ID 1
-
-```bash
-curl http://localhost:5166/courses/1
-```
+- Method: GET
+- URL: `http://localhost:5166/courses/1`
 
 **3. POST /courses** - Add a new course
-
-```bash
-curl -X POST http://localhost:5166/courses \
-  -H "Content-Type: application/json" \
-  -d '{"title": "Database Systems", "creditHours": 4}'
+- Method: POST
+- URL: `http://localhost:5166/courses`
+- Body (raw JSON):
+```json
+{
+  "title": "Database Systems",
+  "creditHours": 4
+}
 ```
 
 ---
@@ -292,7 +290,7 @@ curl -X POST http://localhost:5166/courses \
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/Lab2.git
+git clone https://github.com/Mo-Khaled/Lab2.git
 cd Lab2
 
 # Restore dependencies
@@ -309,38 +307,57 @@ The API will start on: **http://localhost:5166**
 
 ---
 
-## Testing the API
+## Testing the API with Postman
 
-### Option 1: PowerShell
+### Setup
 
-```powershell
-# Get all students
-Invoke-WebRequest http://localhost:5166/students -UseBasicParsing | Select-Object -ExpandProperty Content
+1. Download and install [Postman](https://www.postman.com/downloads/)
+2. Run your application: `dotnet run`
+3. Create a new request in Postman
 
-# Add a student
-$body = @{ name = "Ali"; level = 2 } | ConvertTo-Json
-Invoke-WebRequest http://localhost:5166/students -Method Post -ContentType "application/json" -Body $body -UseBasicParsing
+### Test GET Endpoints
+
+**Get all students:**
+- Method: GET
+- URL: `http://localhost:5166/students`
+- Click **Send**
+
+**Get student by ID:**
+- Method: GET
+- URL: `http://localhost:5166/students/1`
+- Click **Send**
+
+**Get all courses:**
+- Method: GET
+- URL: `http://localhost:5166/courses`
+- Click **Send**
+
+### Test POST Endpoints
+
+**Add a new student:**
+1. Method: POST
+2. URL: `http://localhost:5166/students`
+3. Go to **Body** tab → Select **raw** → Choose **JSON** from dropdown
+4. Enter:
+```json
+{
+  "name": "Ali",
+  "level": 2
+}
 ```
-
-### Option 2: cURL
-
-```bash
-# Get all students
-curl http://localhost:5166/students
-
-# Add a student
-curl -X POST http://localhost:5166/students \
-  -H "Content-Type: application/json" \
-  -d '{"name": "Ali", "level": 2}'
-```
-
-### Option 3: Postman
-
-1. Download [Postman](https://www.postman.com/)
-2. Create new request
-3. Set to **POST** → URL: `http://localhost:5166/students`
-4. Body (JSON): `{"name": "Ali", "level": 2}`
 5. Click **Send**
+
+**Add a new course:**
+1. Method: POST
+2. URL: `http://localhost:5166/courses`
+3. Body (raw JSON):
+```json
+{
+  "title": "Database Systems",
+  "creditHours": 4
+}
+```
+4. Click **Send**
 
 ---
 
@@ -366,13 +383,13 @@ curl -X POST http://localhost:5166/students \
 3. **Connect to Remote Repository**
 
    ```bash
-   git remote add origin https://github.com/yourusername/Lab2.git
+   git remote add origin https://github.com/Mo-Khaled/Lab2.git
    git branch -M main
-   git push -u origin main
+   git push -u origin main --force
    ```
 
 4. **Verify on GitHub**
-   - Visit your repository URL: `https://github.com/yourusername/Lab2`
+   - Visit your repository URL: `https://github.com/Mo-Khaled/Lab2`
    - You should see all files including this README
 
 ---
@@ -406,13 +423,13 @@ curl -X POST http://localhost:5166/students \
 
 ## What You've Learned
 
-✅ Creating an empty ASP.NET Core project  
-✅ Structuring projects with Models, Services, Controllers  
-✅ Using Interfaces for abstraction  
-✅ Building RESTful APIs  
-✅ Dependency Injection  
-✅ Testing APIs with different tools  
-✅ Submitting code to GitHub
+- Creating an empty ASP.NET Core project
+- Structuring projects with Models, Services, Controllers
+- Using Interfaces for abstraction
+- Building RESTful APIs
+- Dependency Injection
+- Testing APIs with Postman
+- Submitting code to GitHub
 
 ---
 
@@ -426,4 +443,4 @@ This project demonstrates a complete ASP.NET Core Web API with:
 - **3 Controllers**: Home (1 endpoint), Student (3 endpoints), Course (3 endpoints)
 - **7 Total Endpoints**: All tested and working
 
-**GitHub Link:** [Your Repository Here]
+**GitHub Repository:** https://github.com/Mo-Khaled/Lab2
